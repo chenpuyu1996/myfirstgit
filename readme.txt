@@ -4,4 +4,4 @@
 远程库修改；
 gva分支上面完成工作；
 这里出现过分支冲突；
-尝试禁止fast foward；
+尝试禁止fast foward；；；；
