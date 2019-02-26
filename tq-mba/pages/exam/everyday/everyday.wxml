@@ -1,0 +1,100 @@
+<!-- 头部导航，链接页面如要更改，需四个都改 -->
+<view class='study-top-nav-area'>
+  <view class='study-top-nav-label study-top-nav-left study-top-nav-label-active'>每日一练</view>
+  <navigator open-type="redirect" url='/pages/exam/stages/stages' class='study-top-nav-label study-top-nav-center'>阶段测试</navigator>
+  <navigator open-type="redirect" url='/pages/exam/past/past' class='study-top-nav-label study-top-nav-center'>历年真题</navigator>
+  <navigator open-type="redirect" url='/pages/exam/practice/practice' class='study-top-nav-label study-top-nav-right'>模拟试卷</navigator>
+</view>
+
+<view class="weui-navbar">
+  <block wx:for="{{tabs}}" wx:key="tabsKey">
+    <view id="{{index}}" class="weui-navbar__item {{activeTab == index ? 'weui-bar__item_on' : ''}}" catchtap="bindTabClick">
+      <view class="weui-navbar__title">{{item.name}}</view>
+    </view>
+  </block>
+
+  <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+</view>
+
+
+<view class='study-top-nav-placeholder'>
+  <!-- 固顶占位 -->
+</view>
+
+<!-- 数据列表 -->
+
+<view class="weui-cells weui-cells_after-title study-list-area">
+  <block wx:for="{{listData}}" wx:for-index="listID" wx:for-item="listItem" wx:key="listID">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-id="{{listID}}" catchtap='bindExame'>
+      <view class="weui-cell__bd">
+
+        <view class='mp-flex-row mp-flex-row-space'>
+          <!-- 名称 -->
+          <view class='study-list-title'> {{listItem.name}}</view>
+
+        </view>
+
+        <view class='study-list-info-area mp-flex-row mp-flex-row-space'>
+          <!-- 参考人次 -->
+          <view>
+            <i class='layui-icon layui-icon-user'></i> {{listItem.hits}}人</view>
+
+          <!-- 日期 -->
+          <view>
+            <i class='layui-icon layui-icon-log'></i> {{listItem.date}}</view>
+
+          <!-- 本人答题状态 -->
+          <view wx:if="{{listItem.progress}}" class="study-list-progress {{listItem.progress == 1 ?'study-list-progress-orange':'study-list-progress-green'}}">{{listItem.progressName}}</view>
+          <view wx:else class="study-list-progress"></view>
+        </view>
+
+
+
+      </view>
+      <view class="weui-cell__ft"></view>
+    </view>
+  </block>
+  <view class="border-t"></view>
+</view>
+
+
+<!-- 
+  底部导航未使用系统tabBar,
+  采用自定义UI，需要在相关页面中均调用以下部分代码，并作相应修改
+ -->
+<!-- 底部占位 -->
+<view class='mp-tab-bottom-placeholder'></view>
+<!-- 底部分类导航 -->
+<view class="mp-grids mp-fixed-bottom mp-border-top">
+  <!-- 1、首页 -->
+  <navigator open-type="redirect" url="/pages/index/index" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-home"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">首页</view>
+  </navigator>
+
+  <!-- 2、综合练习  不加链接 -->
+  <view class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-survey mp-color-green"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-color-green">综合练习</view>
+  </view>
+
+  <!-- 3、学习中心 -->
+  <navigator open-type="redirect" url="/pages/study/study?title=学习中心" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-read "></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">学习中心</view>
+  </navigator>
+
+  <!-- 4、我 -->
+  <navigator open-type="redirect" url="/pages/user/user?title=我" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-username "></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">我</view>
+  </navigator>
+</view>

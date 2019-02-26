@@ -1,0 +1,40 @@
+<!-- 顶部导航 -->
+<view class='menu'>
+  <!-- 子项目导航 -->
+  <view class="menu-content mp-border-top">
+    <scroll-view scroll-x="true" scroll-left="{{menuScrollLeftProject}}" scroll-with-animation="{{true}}">
+      <!-- nav data -->
+      <block wx:for="{{menuData.project}}" wx:for-item="itemProject" wx:key="keyPorject" wx:for-index="indexProject">
+        <view class="menu-item {{menuCurrentTabProject == indexProject ?'active':''}}" data-current="{{indexProject}}" catchtap="bindSwitchTabProject">
+          {{itemProject.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <!-- 学科 -->
+  <view class="menu-content mp-border-top mp-border-bottom">
+    <scroll-view scroll-x="true" scroll-left="{{menuScrollLeftSubject}}" scroll-with-animation="{{true}}">
+      <!-- nav data -->
+      <block wx:for="{{menuData.subject}}" wx:for-item="itemSubject" wx:key="keySubject" wx:for-index="indexSubject">
+        <view class="menu-item {{menuCurrentTabSubject == indexSubject ?'active':''}}" data-current="{{indexSubject}}" catchtap="bindSwitchTabSubject">
+          {{itemSubject.name}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<!-- 数据列表 -->
+<view class="list-container">
+  <view class="weui-cells weui-cells_after-title list-content">
+    <block wx:for="{{listData}}" wx:for-index="listID" wx:for-item="listItem" wx:key="listID">
+      <navigator url="/pagesKnowledge/knowledge_content/knowledge_content?title={{listItem.name}}&lesson={{listItem.id}}&poster={{listItem.poster}}&rights=0" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__hd">
+          <image src="{{listItem.poster}}?x-oss-process=image/resize,m_fixed,h_90" class='img-poster'></image>
+        </view>
+        <view class="weui-cell__bd">{{listItem.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </block>
+    <view class="mp-border-top"></view>
+  </view>
+</view>

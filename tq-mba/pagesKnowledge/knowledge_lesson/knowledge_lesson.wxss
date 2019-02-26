@@ -1,0 +1,20 @@
+
+
+.img-poster{
+  margin-right: 20rpx;
+  vertical-align: middle;
+  width: 210rpx;
+  height: 120rpx;
+  padding: 1rpx;
+  border-radius: 4rpx;
+}
+
+.weui-cells:after {
+  bottom: 0;
+  border-bottom: none;
+}
+
+.weui-cell__bd {
+  font-size: 30rpx;
+  color: #111;
+}

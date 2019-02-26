@@ -1,0 +1,134 @@
+<!-- 导航 -->
+<view class="mp-grids nav-area">
+  <!-- 1、 奇记单词 -->
+  <view catchtap='bindStudyNav' data-type='words' class="mp-grid mp-grid-5 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="nav-label mp-background-purple">
+        <i class="layui-icon layui-icon-headset"></i>
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">奇记单词</view>
+  </view>
+
+  <!-- 2、备考诊断 -->
+  <view catchtap='bindStudyNav' data-type='reference' class="mp-grid mp-grid-5 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="nav-label mp-background-green">
+        <i class="layui-icon layui-icon-survey"></i>
+      </view>
+    </view>
+
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">备考诊断</view>
+  </view>
+
+  <!-- 3、面试测评 -->
+  <view catchtap='bindStudyNav' data-type='interview' class="mp-grid mp-grid-5 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="nav-label mp-background-red">
+        <i class="layui-icon layui-icon-form"></i>
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">面试测评</view>
+  </view>
+
+  <!-- 4、学习计划 -->
+  <view catchtap='bindStudyNav' data-type='plans' class="mp-grid mp-grid-5 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <!-- 有新增计划时，显示红点提示 -->
+      <view wx:if="{{newPlan}}" class="weui-badge weui-badge_dot nav-label-red-dot"></view>
+      <view class="nav-label mp-background-blue">
+        <i class="layui-icon layui-icon-date"></i>
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">学习计划</view>
+  </view>
+
+  <!-- 5、资料下载 -->
+  <view catchtap='bindStudyNav' data-type='docs' class="mp-grid mp-grid-5 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <!-- 有新传资料时，显示红点提示 -->
+      <view wx:if="{{newDoc}}" class="weui-badge weui-badge_dot nav-label-red-dot"></view>
+      <view class="nav-label mp-background-orange">
+        <i class="layui-icon layui-icon-download-circle"></i>
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">资料下载</view>
+  </view>
+</view>
+
+<!-- 我的课程 -->
+<view class="info-title">我的课程</view>
+<!-- 有已购课程 -->
+<block wx:if="{{listData.length > 0}}">
+  <view class="weui-cells weui-cells_after-title">
+    <block wx:for="{{listData}}" wx:for-index="listID" wx:for-item="listItem" wx:key="listID">
+      <navigator url='/pagesKnowledge/knowledge_lesson/knowledge_lesson?title={{listItem.name}}&course={{listItem.id}}' class="weui-cell">
+        <view class="weui-cell__hd ">
+          <!-- 课程下有7天之内新传课件时，显示红点提示 -->
+          <view wx:if="{{!!listItem.newLesson}}" class="weui-badge weui-badge_dot course-label-red-dot"></view>
+          <view class='course-label-num'>{{listID + 1}}</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class='course-title mp-text-ellipsis mp-text-ellipsis-1'>{{listItem.name}}</view>
+
+          <view class='course-info-area mp-flex-row mp-flex-row-space'>
+            <view class='mp-text-ellipsis mp-text-ellipsis-1'>套餐：{{listItem.package}}</view>
+            <view>更新至：{{listItem.lesson}}课时</view>
+          </view>
+
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </block>
+  </view>
+</block>
+<!-- 无已购课程 -->
+<block wx:else>
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=0" class="course-empty mp-flex-column mp-flex-column-center">
+    <view>还没有购买课程</view>
+    <view class='mp-color-green mp-margin-t-20'>去购买</view>
+  </navigator>
+</block>
+
+
+
+<!-- 
+  底部导航未使用系统tabBar,
+  采用自定义UI，需要在相关页面中均调用以下部分代码，并作相应修改
+ -->
+<!-- 底部占位 -->
+<view class='mp-tab-bottom-placeholder'></view>
+<!-- 底部分类导航 -->
+<view class="mp-grids mp-fixed-bottom mp-border-top">
+  <!-- 1、首页 -->
+  <navigator open-type="redirect" url="/pages/index/index" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-home"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">首页</view>
+  </navigator>
+
+  <!-- 2、综合练习 -->
+  <navigator open-type="redirect" url="/pages/exam/everyday/everyday" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-survey"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">综合练习</view>
+  </navigator>
+
+  <!-- 3、学习中心 不加链接 -->
+  <view class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-read mp-color-green"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-color-green">学习中心</view>
+  </view>
+
+  <!-- 4、我 -->
+  <navigator open-type="redirect" url="/pages/user/user" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-username"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">我</view>
+  </navigator>
+</view>

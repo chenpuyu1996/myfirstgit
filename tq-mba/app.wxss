@@ -1,0 +1,10 @@
+/**app.wxss**/
+@import 'style/weui.wxss';
+@import 'style/icons-layui.wxss';
+@import 'style/icons-ion.wxss';
+@import 'style/extends.wxss';
+
+page {
+  font-size: 32rpx;
+  color: #777;
+}

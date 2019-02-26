@@ -1,0 +1,78 @@
+page {
+  background-color: #f1f1f1;
+}
+
+/* 图标导航区 */
+
+.nav-area {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+/* 图标导航 */
+
+.nav-label {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10%;
+  color: #fff;
+  font-size: 42rpx;
+  text-align: center;
+}
+
+.nav-label-red-dot {
+  position: absolute;
+  top: -6rpx;
+  right: 20rpx;
+  padding: 8rpx;
+}
+
+/* 标题栏 */
+
+.info-title {
+  background-color: #fff;
+  font-size: 36rpx;
+  color: #2f4056;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+
+.course-label-num {
+  font-size: 28rpx;
+  width: 56rpx;
+  height: 56rpx;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  line-height: 56rpx;
+  color: #fff;
+  background-color: #2f4056;
+}
+
+.course-label-red-dot {
+  position: absolute;
+  top: 36rpx;
+  left: 76rpx;
+  padding: 8rpx;
+}
+
+.course-info-area {
+  margin-top: 24rpx;
+  margin-right: 10rpx;
+  color: #BBB;
+  font-size: 24rpx;
+}
+
+.weui-cell__bd {
+  font-size: 30rpx;
+  color: #2f4056;
+}
+
+.course-empty {
+  height: 300rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-top: 1rpx solid #d1d1d1;
+}

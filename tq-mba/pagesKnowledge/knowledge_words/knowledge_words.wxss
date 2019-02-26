@@ -1,0 +1,58 @@
+.audio-control-placeholder {
+  height: 160rpx;
+}
+
+.audio-control-area {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平分散对齐 */
+  height: 160rpx;
+  line-height: 160rpx;
+}
+
+.icons-play {
+  font-size: 80rpx;
+  margin-left: 100rpx;
+}
+
+.unit-content {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.settings-area {
+  display: flex;
+  font-size: 40rpx;
+}
+
+.margin-lr-40 {
+  margin: 0 40rpx;
+}
+
+.words-eng {
+  text-align: center;
+  font-size: 80rpx;
+  color: #111;
+  padding-top: 20rpx;
+  border-top: 1rpx solid #d1d1d1;
+}
+
+.words-soundmark, .words-pic {
+  text-align: center;
+}
+
+.words-soundmark image {
+  height: 40rpx;
+}
+
+.words-pic image {
+  height: 260rpx;
+  margin-top: 20rpx;
+}
+
+.words-cn {
+  padding: 40rpx;
+  font-size: 30rpx;
+  color: #111;
+}

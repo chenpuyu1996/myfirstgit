@@ -1,0 +1,288 @@
+/* 1、省略标记文本（...）  */
+
+.mp-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.mp-text-ellipsis .mp-text-ellipsis-1 {
+  -webkit-line-clamp: 1; /* 单行  */
+}
+
+.mp-text-ellipsis .mp-text-ellipsis-2 {
+  -webkit-line-clamp: 2; /* 2行  */
+}
+
+.mp-text-ellipsis .mp-text-ellipsis-3 {
+  -webkit-line-clamp: 3; /* 3行  */
+}
+
+/* 2、字体颜色  */
+
+.mp-color-red {
+  color: #ff5722 !important; /*赤*/
+}
+
+.mp-color-orange {
+  color: #ffb800 !important; /*橙*/
+}
+
+.mp-color-green {
+  color: #009688 !important; /*绿*/
+}
+
+.mp-color-cyan {
+  color: #2f4056 !important; /*青*/
+}
+
+.mp-color-blue {
+  color: #1e9fff !important; /*蓝*/
+}
+
+.mp-color-black {
+  color: #393d49 !important; /*黑*/
+}
+
+.mp-color-7 {
+  color: #777 !important; /*灰*/
+}
+
+/* 3、背景颜色 */
+
+.mp-background-white {
+  background-color: #fff !important; /*白*/
+  color: #fff !important;
+}
+
+.mp-background-red {
+  background-color: #ff5722 !important; /*赤*/
+  color: #fff !important;
+}
+
+.mp-background-orange {
+  background-color: #ffb800 !important; /*橙*/
+  color: #fff !important;
+}
+
+.mp-background-green {
+  background-color: #009688 !important; /*绿*/
+  color: #fff !important;
+}
+
+.mp-background-cyan {
+  background-color: #2f4056 !important; /*青*/
+  color: #fff !important;
+}
+
+.mp-background-blue {
+  background-color: #1e9fff !important; /*蓝*/
+  color: #fff !important;
+}
+
+.mp-background-black {
+  background-color: #393d49 !important; /*黑*/
+  color: #fff !important;
+}
+
+.mp-background-gray {
+  background-color: #eee !important; /*灰*/
+  color: #666 !important;
+}
+
+.mp-background-purple {
+  background-color: #8e44ad !important; /*紫*/
+  color: #fff !important;
+}
+
+/* 4、文本对齐  */
+
+.mp-align-left {
+  text-align: left !important;
+}
+
+.mp-align-center {
+  text-align: center !important;
+}
+
+.mp-align-right {
+  text-align: right !important;
+}
+
+/* 5、flex 垂直布局 */
+
+.mp-flex-column {
+  display: flex;
+  flex-direction: column; /* 垂直方向 */
+  box-sizing: border-box;
+}
+
+.mp-flex-column-center {
+  align-items: center; /* 水平居中 */
+  justify-content: center; /* 垂直居中对齐 */
+}
+
+.mp-flex-column-space {
+  align-items: center; /* 水平居中 */
+  justify-content: space-between; /* 垂直分散对齐 */
+}
+
+/* 6、flex 水平布局 */
+
+.mp-flex-row {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.mp-flex-row-center {
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+.mp-flex-row-space {
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平分散对齐 */
+}
+
+/* 7、固定 */
+
+.mp-fixed-bottom {
+  display: block;
+  width: 100%;
+  position: fixed;
+  bottom: 0; /* 底部 */
+}
+
+/* 8、边线 */
+
+.mp-border-top {
+  border-top: 1rpx solid #d1d1d1;
+}
+
+.mp-border-right {
+  border-right: 1rpx solid #d1d1d1;
+}
+
+.mp-border-bottom {
+  border-bottom: 1rpx solid #d1d1d1;
+}
+
+.mp-border-left {
+  border-left: 1rpx solid #d1d1d1;
+}
+
+/* 9、网格  */
+
+.mp-grids {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.mp-grid {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+}
+
+.mp-grid-4 {
+  width: 25%;
+}
+
+.mp-grid-5 {
+  width: 20%;
+}
+
+.mp-grid-6 {
+  width: 125rpx;
+}
+
+.mp-grid-hover {
+  background-color: #ececec;
+}
+
+.mp-grid-icon {
+  display: block;
+  text-align: center;
+}
+
+.mp-grid-icon-dot {
+  position: absolute;
+  top: 12rpx;
+  right: 60rpx;
+  padding: 6rpx;
+}
+
+.mp-grid-label {
+  display: block;
+  text-align: center;
+  color: #666;
+}
+
+/* 字体大小 */
+.mp-size-22 {
+  font-size: 22rpx;
+}
+
+.mp-size-24 {
+  font-size: 24rpx;
+}
+
+/* 内边距 */
+
+.mp-padding-4 {
+  padding: 8rpx 8rpx;
+}
+
+.mp-padding-t-5 {
+  padding-top: 10rpx;
+}
+
+.mp-padding-t-10 {
+  padding-top: 20rpx;
+}
+
+.mp-padding-t-15 {
+  padding-top: 30rpx;
+}
+
+.mp-padding-t-20 {
+  padding-top: 40rpx;
+}
+
+.mp-padding-b-10 {
+  padding-bottom: 20rpx;
+}
+
+/* 外边距 */
+
+.mp-margin-t-5 {
+  margin-top: 10rpx;
+}
+
+.mp-margin-t-10 {
+  margin-top: 20rpx;
+}
+
+.mp-margin-t-15 {
+  margin-top: 30rpx;
+}
+
+.mp-margin-t-20 {
+  margin-top: 40rpx;
+}
+
+/* 底部导航 占位 */
+
+.mp-tab-bottom-placeholder {
+  height: 140rpx;
+  display: block;
+  width: 100%;
+}
+
+/* 底部导航 图标 */
+
+.mp-tab-bottom-icon {
+  font-size: 40rpx;
+}

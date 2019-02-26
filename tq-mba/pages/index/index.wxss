@@ -1,0 +1,71 @@
+/* 顶部 阶段导航 */
+
+.index-label-stages {
+  width: 68rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+/* 分类导航 标题 */
+
+.index-nav-title {
+  padding-left: 20rpx;
+  font-size: 38rpx;
+  color: #111;
+  margin-bottom: 20rpx;
+}
+
+/* swiper 图片 */
+
+.index-swiper-img {
+  width: 320rpx;
+  height: 180rpx;
+  margin: 0 20rpx;
+  border-radius: 4rpx;
+}
+
+/* swiper 查看全部 */
+swiper{
+  height: 260rpx;
+}
+.index-swiper-view-all {
+  width: 300rpx;
+  height: 160rpx;
+  line-height: 160rpx;
+  text-align: center;
+  color: #111;
+  background-color: #f1f1f1;
+  margin: 0 20rpx;
+  border: 10rpx solid #e1e1e1;
+  border-radius: 4rpx;
+}
+
+/* swiper 标题 */
+
+.index-swiper-title {
+  margin: 0 20rpx;
+  font-size: 22rpx;
+  color: #222;
+}
+
+/* swiper 学习人数 */
+
+.index-swiper-people {
+  margin-left: 20rpx;
+  font-size: 22rpx;
+  color: #BBB;
+}
+
+/* swiper 价格 */
+
+.index-swiper-price {
+  margin-right: 30rpx;
+  font-size: 26rpx;
+  color: #ff5722;
+}
+
+

@@ -1,0 +1,239 @@
+<!-- 阶段导航 -->
+<view class="mp-grids mp-padding-t-10">
+  <!-- 1、 导学阶段-->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=0" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-red">
+        导
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">导学阶段</view>
+  </navigator>
+
+  <!-- 2、基础阶段 -->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=1" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-orange">
+        基
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">基础阶段</view>
+  </navigator>
+  <!-- 3、系统阶段 -->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=2" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-green">
+        系
+      </view>
+    </view>
+
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">系统阶段</view>
+  </navigator>
+  <!-- 4、模考阶段 -->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=3" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-cyan">
+        模
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">模考阶段</view>
+  </navigator>
+  <!-- 5、串讲阶段 -->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=4" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-blue">
+        串
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">串讲阶段</view>
+  </navigator>
+  <!-- 6、密训阶段 -->
+  <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&stages=5" class="mp-grid mp-grid-6 mp-padding-4" hover-class="mp-grid-hover">
+    <view class='mp-flex-row mp-flex-row-center'>
+      <view class="index-label-stages mp-background-purple">
+        密
+      </view>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-padding-t-5">密训阶段</view>
+  </navigator>
+</view>
+
+<!-- 免费课程 -->
+<navigator url="/pagesKnowledge/knowledge_free/knowledge_free?title=免费课程" class='index-nav-title mp-margin-t-20'>免费课程</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{lessons}}" wx:key="free">
+      <swiper-item>
+        <navigator url="/pagesKnowledge/knowledge_content/knowledge_content?title={{item.name}}&lesson={{item.id}}&poster={{item.poster}}&rights=0">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}?x-oss-process=image/resize,m_fixed,h_90"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesKnowledge/knowledge_free/knowledge_free?title=免费课程">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 数学 -->
+<navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=1" class='index-nav-title'>数学</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{packages.math}}" wx:key="math">
+      <swiper-item>
+        <navigator url="/pagesPackage/package_info/package_info?title={{item.name}}&id={{item.id}}&poster={{item.poster}}">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+          <view class='mp-flex-row mp-flex-column-space'>
+            <view class='index-swiper-people'>{{item.people}}人已学</view>
+            <view class='index-swiper-price'>¥ {{item.price}}</view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=1">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 英语二 -->
+<navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=2" class='index-nav-title mp-margin-t-20'>英语二</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{packages.english}}" wx:key="english">
+      <swiper-item>
+        <navigator url="/pagesPackage/package_info/package_info?title={{item.name}}&id={{item.id}}&poster={{item.poster}}">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+          <view class='mp-flex-row mp-flex-column-space'>
+            <view class='index-swiper-people'>{{item.people}}人已学</view>
+            <view class='index-swiper-price'>¥ {{item.price}}</view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=2">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 逻辑 -->
+<navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=3" class='index-nav-title mp-margin-t-20'>逻辑</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{packages.logic}}" wx:key="logic">
+      <swiper-item>
+        <navigator url="/pagesPackage/package_info/package_info?title={{item.name}}&id={{item.id}}&poster={{item.poster}}">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+          <view class='mp-flex-row mp-flex-column-space'>
+            <view class='index-swiper-people'>{{item.people}}人已学</view>
+            <view class='index-swiper-price'>¥ {{item.price}}</view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=3">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 写作 -->
+<navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=4" class='index-nav-title mp-margin-t-20'>写作</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{packages.writting}}" wx:key="writting">
+      <swiper-item>
+        <navigator url="/pagesPackage/package_info/package_info?title={{item.name}}&id={{item.id}}&poster={{item.poster}}">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+          <view class='mp-flex-row mp-flex-column-space'>
+            <view class='index-swiper-people'>{{item.people}}人已学</view>
+            <view class='index-swiper-price'>¥ {{item.price}}</view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=4">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 全部套餐 -->
+<navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=0" class='index-nav-title mp-margin-t-20'>全部套餐</navigator>
+<view>
+  <swiper next-margin="40rpx" display-multiple-items="2">
+    <block wx:for="{{packages.all}}" wx:key="all">
+      <swiper-item>
+        <navigator url="/pagesPackage/package_info/package_info?title={{item.name}}&id={{item.id}}&poster={{item.poster}}">
+          <image class='index-swiper-img' mode="scaleToFill" src="{{item.poster}}"></image>
+          <view class='index-swiper-title mp-text-ellipsis mp-text-ellipsis-1'>{{item.name}}</view>
+          <view class='mp-flex-row mp-flex-column-space'>
+            <view class='index-swiper-people'>{{item.people}}人已学</view>
+            <view class='index-swiper-price'>¥ {{item.price}}</view>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+    <swiper-item>
+      <navigator url="/pagesPackage/package_list/package_list?title=全部套餐&subject=0">
+        <view class='index-swiper-view-all'>查看全部</view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 
+  底部导航未使用系统tabBar,
+  采用自定义UI，需要在相关页面中均调用以下部分代码，并作相应修改
+ -->
+<!-- 底部占位 -->
+<view class='mp-tab-bottom-placeholder'></view>
+<!-- 底部分类导航 -->
+<view class="mp-grids mp-fixed-bottom mp-border-top">
+  <!-- 1、首页 不加链接 -->
+  <view class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-home mp-color-green"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-color-green">首页</view>
+  </view>
+
+  <!-- 2、综合练习 -->
+  <navigator open-type="redirect" url="/pages/exam/everyday/everyday" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <!-- 红点提示 -->
+    <!-- <view class="weui-badge weui-badge_dot mp-grid-icon-dot"></view> -->
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-survey "></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">综合练习</view>
+  </navigator>
+  <!-- 3、学习中心 -->
+  <navigator open-type="redirect" url="/pages/study/study" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-read "></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">学习中心</view>
+  </navigator>
+  <!-- 4、我 -->
+  <navigator open-type="redirect" url="/pages/user/user" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-username "></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">我</view>
+  </navigator>
+</view>

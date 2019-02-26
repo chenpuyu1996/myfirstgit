@@ -1,0 +1,122 @@
+/* top-nav */
+
+.study-top-nav-area {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  box-sizing: border-box;
+  padding-top: 30rpx;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 99999;
+}
+
+.study-top-nav-label {
+  display: inline-block;
+  width: 175rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #009688;
+  border: 1rpx solid #009688;
+}
+
+.study-top-nav-label-active {
+  color: #fff !important;
+  background-color: #009688;
+}
+
+.study-top-nav-left {
+  border-right: none !important;
+  border-top-left-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
+}
+
+.study-top-nav-center {
+  border-right: none !important;
+}
+
+.study-top-nav-right {
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+}
+
+/* 占位 */
+
+.study-top-nav-placeholder {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  height: 194rpx;
+  z-index: 99990;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #d1d1d1;
+}
+
+/* navbar  */
+
+.weui-navbar {
+  border-bottom: none;
+  position: fixed;
+  top: 96rpx;
+  width: 100%;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+.weui-navbar__item {
+  padding-top: 24rpx;
+  padding-bottom: 16rpx;
+  color: #111;
+}
+
+.weui-navbar__title {
+  font-size: 28rpx;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #009688;
+}
+
+.weui-navbar__slider {
+  width: 80rpx;
+  background-color: #009688;
+}
+
+/* study-list */
+
+.study-list-area {
+  padding-top: 190rpx;
+}
+
+.study-list-title {
+  font-size: 30rpx;
+  color: #111;
+}
+
+.study-list-progress {
+  font-size: 20rpx;
+  min-width: 74rpx;
+  text-align: center;
+  padding: 2rpx;
+}
+
+.study-list-progress-green {
+  border: 1rpx solid #009688;
+  color: #009688;
+  border-radius: 2rpx;
+}
+
+.study-list-progress-orange {
+  border: 1rpx solid #ffb800;
+  color: #ffb800;
+  border-radius: 2rpx;
+}
+
+.study-list-info-area {
+  margin-top: 18rpx;
+  color: #bbb;
+  font-size: 22rpx;
+}

@@ -1,0 +1,6 @@
+<view>
+  <video id="myVideo" src="{{lessonData.vod_src}}" poster="{{lessonData.vod_poster}}" bindended="bindVideoEnded" binderror="bindVideoErrorCallback" controls style='height:{{vodHeight}}px'></video>
+</view>
+<view style='padding-top:{{vodHeight}}px'>
+
+</view>

@@ -1,0 +1,120 @@
+@import "../../wxParse/wxParse.wxss";
+
+page {
+  font-size: 24rpx;
+  color: #333;
+}
+
+/* top-nav */
+
+.exam-top-nav-area {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平分散对齐 */
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  width: 100%;
+  height: 90rpx;
+  position: fixed;
+  z-index: 99999;
+  border-bottom: 1rpx solid #d1d1d1;
+  background-color: #fff;
+}
+
+.exam-top-nav-label {
+  border-radius: 4rpx;
+  padding: 4rpx 12rpx;
+}
+
+/* 试题区 */
+
+.questions-area {
+  padding-top: 90rpx;
+}
+
+.wxParse {
+  font-size: 24rpx;
+  line-height: 1.8;
+  padding: 20rpx;
+  color: #333;
+}
+
+.wxParse-inline {
+  color: #333;
+  word-break: break-word !important;
+}
+
+.exam-label-area {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平分散对齐 */
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-top: 20rpx;
+}
+
+.exam-point-area {
+  padding-left: 40rpx;
+}
+
+.exam-point-content {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2rpx 8rpx;
+}
+
+.exam-result-area {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平分散对齐 */
+  padding-left: 40rpx;
+  padding-right: 30rpx;
+}
+
+.exam-count-title {
+  color: #1e9fff;
+  text-align: center;
+  padding: 20rpx 30rpx 20rpx 40rpx;
+  /* border-top: 1rpx solid #f1f1f1; */
+}
+
+.exam-count-body {
+  border-top: 1rpx solid #d1d1d1;
+  display: flex;
+}
+
+.exam-count-column {
+  padding-top: 6rpx;
+  padding-bottom: 6rpx;
+  text-align: center;
+}
+
+.exam-count-column-4 {
+  width: 25%;
+}
+
+.exam-count-column-5 {
+  width: 20%;
+}
+
+.exam-count-column-6 {
+  width: 125rpx;
+}
+
+.exam-count-column-8 {
+  width: 12.5%;
+}
+
+.border-line {
+  box-sizing: border-box;
+  padding: 0 8rpx;
+  border: 1rpx solid #ff5722;
+  border-radius: 4rpx;
+  color: #ff5722;
+}
+
+.border-line-blue {
+  border: 1rpx solid #1e9fff !important;
+  color: #1e9fff !important;
+}

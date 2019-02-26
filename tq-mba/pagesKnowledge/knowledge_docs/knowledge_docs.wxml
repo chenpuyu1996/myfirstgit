@@ -1,0 +1,33 @@
+<view wx:if="{{loading}}" class='download-progress-area'>
+  <view class='download-progress-content'>
+    <view>请稍候，加载中……</view>
+    <view class='mp-padding-t-10'>已完成 {{progress}} </view>
+  </view>
+</view>
+<view class="weui-cells weui-cells_after-title list-content">
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{listData}}" wx:for-index="listID" wx:for-item="listItem" wx:key="listID">
+        <view data-id='{{listItem.id}}' data-src='{{listItem.src}}' catchtap='bindViewDocs' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd ">
+            <!-- 有新传资料时，显示红点提示 -->
+            <view wx:if="{{!!listItem.isNew}}" class="weui-badge weui-badge_dot docs-label-red-dot"></view>
+
+            <image src="{{listItem.poster}}" class='docs-img-poster'></image>
+          </view>
+          <view class="weui-cell__bd">
+            <view class='docs-title mp-text-ellipsis mp-text-ellipsis-1'>{{listItem.name}}</view>
+
+            <view class='docs-info-area mp-flex-row mp-flex-row-space'>
+              <view class='mp-text-ellipsis mp-text-ellipsis-1'>
+                <i class='layui-icon layui-icon-log'></i> {{listItem.date}}</view>
+              <view>
+                <i class='layui-icon layui-icon-download-circle'></i> {{listItem.hits}}次</view>
+            </view>
+
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+      </block>
+    </view>
+  <view class="mp-border-top"></view>
+</view>

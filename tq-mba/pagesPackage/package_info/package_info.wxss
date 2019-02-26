@@ -1,0 +1,58 @@
+/* 预览图 */
+
+.poster {
+  width: 100%;
+}
+/*  */
+.weui-form-preview:after {
+  border-bottom: none;
+}
+/* 导航条 */
+
+.weui-navbar {
+  border-bottom: 1rpx solid #d1d1d1;
+}
+
+.weui-navbar__title{
+  font-weight: 500;
+}
+
+/* 非活动标签 */
+
+.weui-navbar__item.weui-bar__item_off {
+  color: #999;
+}
+
+/* 标签内容区 */
+
+.weui-form-preview__bd {
+  padding: 20rpx 30rpx 0 30rpx;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 标签内容区标签 */
+
+.weui-form-preview__label {
+  color: #555;
+}
+
+/* 提示图标 */
+
+.icon-tips {
+  padding-left: 10rpx;
+  font-size: 34rpx;
+  color: #d1d1d1;
+}
+/* 列表 */
+.weui-cell__bd{
+  font-size: 28rpx;
+  color: #555;
+}
+/* 内容简介 */
+.intro-content {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #555;
+}

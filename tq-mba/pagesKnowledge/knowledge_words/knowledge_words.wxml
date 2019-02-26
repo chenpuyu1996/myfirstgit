@@ -1,0 +1,41 @@
+<!-- 单词英文 -->
+<view class='words-eng'>{{listData[activeData].sew_words}}</view>
+
+<!-- 单词音标 -->
+<view wx:if="{{!!listData[activeData].sew_soundmark_state}}" class='words-soundmark'>
+  <image src='{{urlSoundmrk}}{{listData[activeData].sew_soundmark}}.jpg' mode='aspectFit'></image>
+</view>
+
+<!-- 单词辅助记忆图片 -->
+<view  wx:if="{{!!listData[activeData].sew_pic_state}}" class='words-pic'>
+  <image src='{{urlPic}}{{listData[activeData].sew_pic}}.jpg' mode='aspectFit'></image>
+</view>
+
+<!-- 单词中文词义 -->
+<view class='words-cn'>{{listData[activeData].sew_cn_mean}}</view>
+
+<!-- 底部占位 -->
+<view class='audio-control-placeholder'></view>
+<!-- 底部分类导航 -->
+<view class="audio-control-area mp-fixed-bottom mp-border-top">
+  <view class='icons-play'>
+    <i wx:if="{{!isPlay}}" class="icon ion-md-play-circle" catchtap='bindPlay'></i>
+    <i wx:if="{{isPlay}}" class="icon ion-md-pause mp-color-green" catchtap='bindPause'></i>
+  </view>
+
+  <!-- 节点选择器 -->
+  <picker bindchange="bindPickerChange" value="{{unitIndex}}" range="{{unit}}">
+    <view class='unit-content'>
+      {{unit[unitIndex]}}
+    </view>
+  </picker>
+
+  <view class='settings-area'>
+    <view>
+      <i class="icon ion-md-repeat {{isLoop?'mp-color-green':''}}" catchtap='bindLoop'></i>
+    </view>
+    <view class='margin-lr-40'>
+      <i class="icon ion-md-pulse {{isSpellwords?'mp-color-green':''}}" catchtap='bindSpell'></i>
+    </view>
+  </view>
+</view>

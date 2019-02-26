@@ -1,0 +1,31 @@
+<view class="login-header">
+  <view class="login-title">修改密码</view>
+</view>
+
+<view class="login-form-container">
+  <!-- 输入框 -->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">原密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="oldpwd" type="text" password confirm-type="next" class="weui-input" placeholder-class="placeholder" placeholder="请输入原密码" maxlength='20' bindinput="bindOldPwdInput" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">新密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="newpwd" type="text" confirm-type="done" class="weui-input" placeholder-class="placeholder" placeholder="请输入新密码" maxlength='20' bindinput="bindNewPwdInput" />
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="weui-btn-area button-area">
+    <button class="weui-btn" type="primary" catchtap='bindFormSubmit' disabled='{{!oldpwd.length || !newpwd.length}}'>修改</button>
+  </view>
+</view>

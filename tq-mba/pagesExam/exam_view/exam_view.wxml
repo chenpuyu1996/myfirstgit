@@ -1,0 +1,153 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!-- 顶部导航 -->
+<view class="exam-top-nav-area">
+  <view class="exam-top-nav-label {{activIndex > 0 ?'mp-background-blue':'mp-background-gray'}}" catchtap='bindPre'>
+    <i class="icon ion-md-arrow-dropleft"></i> 上一题
+  </view>
+
+  <view class="exam-top-nav-label mp-background-green">
+    {{activIndex + 1}}/{{listData.length}} {{listData[activIndex].types.name}}
+  </view>
+
+  <view class="exam-top-nav-label {{activIndex == (listData.length - 1) ?'mp-background-red':'mp-background-blue'}}" catchtap='bindNext'>
+    {{activIndex == (listData.length - 1) ?'END':'下一题'}}
+    <i class="icon ion-md-arrow-dropright"></i>
+  </view>
+</view>
+
+
+<!-- 试题 -->
+<view class='questions-area'>
+  <!-- partA -->
+  <view>
+    <!-- 材料 -->
+    <view wx:if="{{listData[activIndex].question.materials.length > 0}}" class="wxParse ">
+      <template is="wxParse" data="{{wxParseData:materials.nodes}}" />
+    </view>
+
+    <!-- 原题 -->
+    <view wx:if="{{listData[activIndex].question.question.length > 0}}" class="wxParse {{listData[activIndex].question.materials.length > 0?'mp-border-top':''}}">
+      <template is="wxParse" data="{{wxParseData:question.nodes}}" />
+    </view>
+
+  </view>
+
+  <!-- partB 完形 阅读理解 多问题专属 -->
+  <view wx:if="{{listData[activIndex].question.subQuestion.length > 0}}">
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:subQuestion.nodes}}" />
+    </view>
+  </view>
+
+  <!-- partC 考点 -->
+  <view wx:if="{{listData[activIndex].question.points.length > 0}}" class='exam-label-area' style='padding-bottom:20rpx;'>
+    <view class='border-line'>考点</view>
+  </view>
+  <view class='exam-point-area'>
+    <block wx:for="{{listData[activIndex].question.points}}" wx:for-item="pointsItem" wx:key="pointsKey" wx:for-index="pointsId">
+      <view class='exam-point-content'>{{pointsItem.name}}</view>
+    </block>
+  </view>
+
+
+  <!-- partD 解析 -->
+  <view class='exam-label-area'>
+    <view class='border-line'>解析</view>
+    <!-- 有视频讲解时才显示 -->
+    <navigator url='/pagesExam/exam_vod/exam_vod?title=视频讲解&vod={{listData[activIndex].question.vod}}' wx:if="{{listData[activIndex].question.vod.length > 0}}" class='border-line border-line-blue'>讲解
+      <i class="layui-icon layui-icon-play"></i>
+    </navigator>
+  </view>
+  <view class="wxParse" style='padding-left:40rpx;'>
+    <block wx:if="{{listData[activIndex].question.explain.length > 0}}">
+      <template is="wxParse" data="{{wxParseData:explain.nodes}}" />
+    </block>
+    <block wx:else>
+      暂无
+    </block>
+  </view>
+
+  <!-- 仅当客观题 -->
+  <view wx:if="{{listData[activIndex].types.ans_input_type !== 'text'}}">
+
+    <!-- partE 用户答案及结果 -->
+    <view class='exam-label-area' style='padding-bottom:20rpx;'>
+      <view class='border-line'>答案</view>
+    </view>
+    <view class='exam-result-area' wx:for="{{listData[activIndex].question.answer}}" wx:for-item="answerItem" wx:key="answerKey" wx:for-index="answerId">
+      <!-- 参考答案 -->
+      <view>
+        <block wx:if="{{listData[activIndex].question.answer.length > 1}}">
+          <!-- 多子题时显示题号 -->
+          <text style='padding-right:10rpx;'>{{answerId + 1}}.</text>
+        </block>
+        <text>参考答案：{{answerItem.answer}}</text>
+      </view>
+
+      <!-- 用户答案不为空 -->
+      <block wx:if="listData[activIndex].question.results[answerId].answer.length > 0">
+        <view>我的答案：{{listData[activIndex].question.results[answerId].answer}}
+          <!-- 用户答案正确 -->
+          <block wx:if="{{listData[activIndex].question.results[answerId].answer === answerItem.answer}}">
+            <i class="layui-icon layui-icon-ok mp-color-green" style="font-size:28rpx;"></i>
+          </block>
+          <!-- 用户答案错误 -->
+          <block wx:else>
+            <i class="layui-icon layui-icon-close mp-color-red" style="font-size:28rpx;"></i>
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <view>我的答案：无
+          <i class="layui-icon layui-icon-close mp-color-red" style="font-size:28rpx;"></i>
+        </view>
+      </block>
+    </view>
+
+
+    <!-- partF 用户答案及结果 -->
+    <view class='exam-count-title' catchtap='bindCount'>数据统计</view>
+    <block wx:if="{{listData[activIndex].count && listData[activIndex].count.count.length > 0}}">
+      <!-- 只有一组选项时 -->
+      <block wx:if="{{listData[activIndex].count.count.length ==  1}}">
+        <!-- 选项 -->
+        <view class='exam-count-body'>
+          <block wx:for="{{listData[activIndex].count.input}}" wx:for-item="inputItem" wx:key="inputKey" wx:for-index="inputId">
+            <view class="exam-count-column exam-count-column-{{listData[activIndex].count.input.length}} {{inputId>0?'mp-border-left':''}}">{{inputItem}}</view>
+          </block>
+        </view>
+        <!-- 百分比 -->
+        <view class="exam-count-body mp-border-bottom">
+          <block wx:for="{{listData[activIndex].count.count[0]}}" wx:for-item="percentItem" wx:key="percentKey"  wx:for-index="percentId">
+            <view class="exam-count-column exam-count-column-{{listData[activIndex].count.input.length}} {{percentId>0?'mp-border-left':''}}">{{percentItem}}</view>
+          </block>
+        </view>
+      </block>
+      <!-- 有多组选项时（完型填空、阅读理解） -->
+      <block wx:else>
+        <!-- 选项 -->
+        <view class='exam-count-body'>
+          <view class='exam-count-column exam-count-column-{{listData[activIndex].count.input.length + 1}}'>题号</view>
+          <block wx:for="{{listData[activIndex].count.input}}" wx:for-item="inputItem" wx:key="inputKey" wx:for-index="inputId">
+            <view class="exam-count-column exam-count-column-{{listData[activIndex].count.input.length + 1}} mp-border-left">{{inputItem}}</view>
+          </block>
+        </view>
+        <!-- 百分比 -->
+        <block wx:for="{{listData[activIndex].count.count}}" wx:for-item="countItem" wx:key="countKey" wx:for-index="countId">
+          <view class="exam-count-body {{countId == (listData[activIndex].count.count.length -1)?'mp-border-bottom':''}}">
+            <view class='exam-count-column exam-count-column-{{listData[activIndex].count.input.length + 1}}'>
+              {{countId + 1}}
+            </view>
+            <block wx:for="{{countItem}}" wx:for-item="inputItem" wx:key="inputKey" wx:for-index="inputId">
+              <view class='exam-count-column exam-count-column-{{listData[activIndex].count.input.length + 1}} mp-border-left'>{{inputItem}}</view>
+            </block>
+          </view>
+        </block>
+      </block>
+
+    </block>
+    <view style='padding-bottom:60rpx;'></view>
+
+  </view>
+
+</view>

@@ -1,0 +1,149 @@
+<!-- 用户已登录 -->
+<block wx:if="{{isLogin}}">
+  <!-- 个人资料 -->
+  <view class="info-title">个人资料</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-friends"></i>
+        <text class='title'>帐号</text>
+      </view>
+      <view class="weui-cell__ft">{{userInfo.uname}}</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-diamond"></i>
+        <text class='title'>奇币</text>
+      </view>
+      <view class="weui-cell__ft">{{userInfo.tqCoins}}币</view>
+    </view>
+
+    <navigator url='/pagesUser/user_realName/user_realName?realname={{userInfo.realname}}' class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-username"></i>
+        <text class='title'>姓名</text>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo.rname}}</view>
+    </navigator>
+
+    <navigator url='/pagesUser/user_changpwd/user_changpwd' class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-password"></i>
+        <text class='title'>修改密码</text>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-note"></i>
+        <text class='title'>课程数量</text>
+      </view>
+      <view class="weui-cell__ft ">{{userInfo.packageNum}}</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <i class="layui-icon layui-icon-log"></i>
+        <text class='title'>学习时长</text>
+      </view>
+      <view class="weui-cell__ft ">天</view>
+    </view>
+
+  </view>
+  <view class="login-service-mob" catchtap='bindPhoneCall'>
+    免费服务热线：400-888-7200
+  </view>
+
+  <!-- 退出登录 -->
+  <view class="weui-btn-area button-area">
+    <button class="weui-btn" type="warn" catchtap='bindCeckout'>安全退出</button>
+  </view>
+</block>
+
+
+<!-- 用户未登录 -->
+<block wx:else>
+  <view class="login-header">
+    <view class="login-title">帐户登录</view>
+  </view>
+
+  <view class="login-form-container">
+    <!-- 输入框 -->
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">用户名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="uname" type="text" class="weui-input" placeholder-class="login-placeholder" placeholder="请输入您的用户名" maxlength='20' bindinput="bindUnameInput" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">密码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="upass" type="text" password confirm-type="done" class="weui-input" placeholder-class="login-placeholder" placeholder="请输入您的帐号密码" maxlength='20' bindinput="bindUpassInput" />
+        </view>
+      </view>
+    </view>
+    <!-- 注册及密码找回 -->
+    <view class='login-enroll-area'>
+      <navigator url='/pagesUser/user_enroll/user_enroll' class="login-enroll">免费注册</navigator>
+      <navigator url='/pagesUser/user_findpwd/user_findpwd' class="login-enroll">忘记密码</navigator>
+    </view>
+
+    <view class="login-service-mob" catchtap='bindPhoneCall'>
+      免费服务热线：400-888-7200
+    </view>
+    <!-- 提交按钮 -->
+    <view class="weui-btn-area button-area">
+      <button class="weui-btn" type="primary" catchtap='bindFormSubmit' disabled='{{!((uname.length>0) &&(upass.length > 5))}}'>登录</button>
+    </view>
+  </view>
+</block>
+
+
+<!-- 
+  底部导航未使用系统tabBar,
+  采用自定义UI，需要在相关页面中均调用以下部分代码，并作相应修改
+ -->
+<!-- 底部占位 -->
+<view class='mp-tab-bottom-placeholder'></view>
+<!-- 底部分类导航 -->
+<view class="mp-grids mp-fixed-bottom mp-border-top">
+  <!-- 1、首页 -->
+  <navigator open-type="redirect" url="/pages/index/index" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-home"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">首页</view>
+  </navigator>
+
+  <!-- 2、综合练习 -->
+  <navigator open-type="redirect" url="/pages/exam/everyday/everyday" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-survey"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">综合练习</view>
+  </navigator>
+
+  <!-- 3、学习中心 -->
+  <navigator open-type="redirect" url="/pages/study/study" class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-read"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22">学习中心</view>
+  </navigator>
+
+  <!-- 4、我   不加链接 -->
+  <view class="mp-grid mp-grid-4 mp-padding-4" hover-class="mp-grid-hover">
+    <view class="mp-grid-icon mp-tab-bottom-icon">
+      <i class="layui-icon layui-icon-username mp-color-green"></i>
+    </view>
+    <view class="mp-grid-label mp-size-22 mp-color-green">我</view>
+  </view>
+</view>

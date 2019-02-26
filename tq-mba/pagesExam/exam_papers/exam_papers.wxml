@@ -1,0 +1,126 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!-- 顶部导航 -->
+<view class="exam-top-nav-area">
+  <view class="exam-top-nav-label {{activIndex > 0 ?'mp-background-blue':'mp-background-gray'}}" catchtap='bindPre'>
+    <i class="icon ion-md-arrow-dropleft"></i> 上一题
+  </view>
+
+  <view class="exam-top-nav-label mp-background-green">
+    {{activIndex + 1}}/{{listData.length}} {{listData[activIndex].types.name}}
+  </view>
+
+  <view class="exam-top-nav-label {{activIndex == (listData.length - 1) ?'mp-background-red':'mp-background-blue'}}" catchtap='bindNext'>
+    {{activIndex == (listData.length - 1) ?'完成':'下一题'}}
+    <i class="icon ion-md-arrow-dropright"></i>
+  </view>
+</view>
+
+
+<!-- 试题 -->
+<view class='questions-area' style='height:{{examAreaHeight}}px;'>
+  <!-- partA -->
+  <view class='ext-scroll' style='height:{{partAHeight}}%;'>
+    <!-- 材料 -->
+    <view wx:if="{{listData[activIndex].question.materials.length > 0}}" class="wxParse ">
+      <template is="wxParse" data="{{wxParseData:materials.nodes}}" />
+    </view>
+
+    <!-- 原题 -->
+    <view wx:if="{{listData[activIndex].question.question.length > 0}}" class="wxParse {{listData[activIndex].question.materials.length > 0?'mp-border-top':''}}">
+      <template is="wxParse" data="{{wxParseData:question.nodes}}" />
+    </view>
+
+  </view>
+
+  <!-- partB 完形 阅读理解 多问题专属 -->
+  <view wx:if="{{listData[activIndex].question.subQuestion.length > 0}}" class='exam-partB ext-scroll' style='height:{{partBHeight}}%;margin-top:20rpx;'>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:subQuestion.nodes}}" />
+    </view>
+  </view>
+
+
+  <!-- partC 答题卡 选择题型专属 -->
+  <view class='ext-scroll' wx:if="{{listData[activIndex].types.ans_input_type !=='text'}}" style='height:{{partCHeight}}%;'>
+
+    <!-- ========== 只有一组选项 START ================ -->
+    <block wx:if="{{listData[activIndex].question.options.length == 1}}">
+      <!-- 单选 START -->
+      <block wx:if="{{listData[activIndex].types.ans_input_type==='radio'}}">
+        <radio-group bindchange="bindOptionsChange" data-index="0">
+          <view class='exam-options-group'>
+            <view class="exam-options-lable-{{listData[activIndex].types.ans_input_nums}}" wx:for="{{listData[activIndex].question.options[0]}}" wx:for-item="answerItem" wx:key="answerKey" wx:for-index="answerId">
+              <label class="radio">
+                <radio value="{{answerItem.value}}" checked="{{answerItem.checked}}" />{{answerItem.name}}
+              </label>
+            </view>
+          </view>
+        </radio-group>
+      </block>
+      <!-- 单选 END -->
+
+      <!-- 多选 START -->
+      <block wx:else>
+        <checkbox-group bindchange="bindOptionsChange" data-index="0">
+          <view class='exam-options-group'>
+            <view class="exam-options-lable-{{listData[activIndex].types.ans_input_nums}}" wx:for="{{listData[activIndex].question.options[0]}}" wx:for-item="answerItem" wx:key="answerKey" wx:for-index="answerId">
+              <label class="checkbox">
+                <checkbox value="{{answerItem.value}}" checked="{{answerItem.checked}}" />{{answerItem.name}}
+              </label>
+            </view>
+          </view>
+        </checkbox-group>
+      </block>
+      <!-- 多选 END -->
+
+    </block>
+
+    <!-- ========== 有多组选项 START ================ -->
+
+    <block wx:else>
+      <block wx:for="{{listData[activIndex].question.options}}" wx:for-item="multiItem" wx:key="multiKey" wx:for-index="multiId">
+        <!-- 单选 START -->
+        <block wx:if="{{listData[activIndex].types.ans_input_type==='radio'}}">
+          <view class='exam-option-multi-area'>
+            <view class='exam-option-multi-num'>{{multiId + 1}}</view>
+            <radio-group bindchange="bindOptionsChange" data-index="{{multiId}}" class='exam-option-multi-group'>
+              <view class='exam-options-group'>
+                <view class="exam-options-lable-{{listData[activIndex].types.ans_input_nums}}" wx:for="{{multiItem}}" wx:for-item="answerItem" wx:key="answerKey" wx:for-index="answerId">
+                  <label class="radio">
+                    <radio value="{{answerItem.value}}" checked="{{answerItem.checked}}" />{{answerItem.name}}
+                  </label>
+                </view>
+              </view>
+            </radio-group>
+          </view>
+
+        </block>
+        <!-- 单选 END -->
+
+        <!-- 多选 START -->
+        <block wx:else>
+
+          <view class='exam-option-multi-area'>
+            <view class='exam-option-multi-num'>{{multiId + 1}}</view>
+            <checkbox-group bindchange="bindOptionsChange" class='exam-option-multi-group' data-index="{{multiId}}">
+              <view class='exam-options-group'>
+                <view class="exam-options-lable-{{listData[activIndex].types.ans_input_nums}}" wx:for="{{multiItem}}" wx:for-item="answerItem" wx:key="answerKey" wx:for-index="answerId">
+                  <label class="checkbox">
+                    <checkbox value="{{answerItem.value}}" checked="{{answerItem.checked}}" />{{answerItem.name}}
+                  </label>
+                </view>
+              </view>
+            </checkbox-group>
+          </view>
+
+        </block>
+        <!-- 多选 END -->
+
+
+      </block>
+    </block>
+    <!-- 有多组选项 END -->
+
+  </view>
+
+</view>

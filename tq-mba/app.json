@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/exam/everyday/everyday",
+    "pages/exam/stages/stages",
+    "pages/exam/past/past",
+    "pages/exam/practice/practice",
+    "pages/study/study",
+    "pages/user/user"
+  ],
+  "subPackages": [
+    {
+      "root": "pagesPackage",
+      "pages": [
+        "package_list/package_list",
+        "package_info/package_info"
+      ]
+    },
+    {
+      "root": "pagesExam",
+      "pages": [
+        "exam_papers/exam_papers",
+        "exam_papers_content/exam_papers_content",
+        "exam_view/exam_view",
+        "exam_vod/exam_vod"
+      ]
+    },
+    {
+      "root": "pagesKnowledge",
+      "pages": [
+        "knowledge_lesson/knowledge_lesson",
+        "knowledge_content/knowledge_content",
+        "knowledge_free/knowledge_free",
+        "knowledge_docs/knowledge_docs",
+        "knowledge_words/knowledge_words"
+      ]
+    },
+    {
+      "root": "pagesUser",
+      "pages": [
+        "user_changpwd/user_changpwd",
+        "user_enroll/user_enroll",
+        "user_findpwd/user_findpwd",
+        "user_realName/user_realName"
+        
+      ]
+    }
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,39 @@
+<view class="login-header">
+  <view class="login-title">帐户注册</view>
+</view>
+
+<view class="login-form-container">
+  <!-- 输入框 -->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name="phone" type="number" class="weui-input" placeholder-class="login-placeholder" placeholder="请输入您的手机号码" maxlength='11' bindinput="bindPhoneInput" />
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">验证码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class='login-authcode-area'>
+          <view class='login-authcode-input'>
+            <input name="authcode" type="number" class="weui-input" placeholder-class="login-placeholder" placeholder="请输入收到的验证码" maxlength='{{authcodeLength}}' bindinput="bindAuthcodeInput" disabled="{{allowGetCode}}" />
+          </view>
+          <view class='login-authcode-button'>
+            <view class='login-authcode-get' catchtap='bindGetCode'>{{authcodeText}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="weui-btn-area button-area">
+    <button class="weui-btn" type="primary" catchtap='bindFormSubmit' disabled='{{!((phone.length===11) && (authcode.length===authcodeLength))}}'>注册</button>
+  </view>
+</view>

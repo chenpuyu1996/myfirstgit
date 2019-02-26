@@ -1,0 +1,39 @@
+<import src="../../wxParse/wxParse.wxml" />
+<!-- 顶部导航 -->
+<view class="exam-top-nav-area">
+  <view class="exam-top-nav-label {{activIndex > 0 ?'mp-background-blue':'mp-background-gray'}}" catchtap='bindPre'>
+    <i class="icon ion-md-arrow-dropleft"></i> 上一题
+  </view>
+
+  <view class="exam-top-nav-label {{activIndex == (listData.length - 1) ?'mp-background-red':'mp-background-blue'}}" catchtap='bindNext'>
+    {{activIndex == (listData.length - 1) ?'完成':'下一题'}}
+    <i class="icon ion-md-arrow-dropright"></i>
+  </view>
+</view>
+
+
+<!-- 试题 -->
+<view class='questions-area'>
+  <!-- partA -->
+  <view>
+    <!-- 原题 -->
+    <view wx:if="{{listData[activIndex].question.length > 0}}" class="wxParse">
+      <template is="wxParse" data="{{wxParseData:question.nodes}}" />
+    </view>
+  </view>
+
+
+  <!-- partD 解析 -->
+  <view class='exam-label-area'>
+    <view class='border-line'>解析</view>
+  </view>
+  <view class="wxParse" style='padding-left:40rpx;'>
+    <block wx:if="{{listData[activIndex].explain.length > 0}}">
+      <template is="wxParse" data="{{wxParseData:explain.nodes}}" />
+    </block>
+    <block wx:else>
+      暂无
+    </block>
+  </view>
+
+</view>

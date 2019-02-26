@@ -1,0 +1,53 @@
+.menu {
+  position: fixed;
+  color: #111;
+  background: #fff;
+  font-size: 28rpx;
+  height: 142rpx;
+  z-index: 99999;
+}
+
+.menu-content {
+  width: 750rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+
+.menu-item {
+  width: 20%; /* 每个标签所占的宽度，100% = 750rpx */
+  display: inline-block;
+  text-align: center;
+}
+
+.menu-item.active {
+  color: #009688 !important;
+}
+
+.list-container {
+  background: white;
+  box-sizing: border-box;
+  padding-top: 136rpx; /* 上边距，按需调整 */
+  padding-bottom: 30rpx;
+}
+
+.img-poster{
+  margin-right: 20rpx;
+  vertical-align: middle;
+  width: 210rpx;
+  height: 120rpx;
+  padding: 1rpx;
+  border-radius: 4rpx;
+}
+
+.weui-cells:after {
+  bottom: 0;
+  border-bottom: none;
+}
+
+.weui-cell__bd {
+  font-size: 30rpx;
+  color: #111;
+}

@@ -1,0 +1,97 @@
+<!-- 课程包预览图 -->
+<view>
+  <image src="{{poster}}" class='poster'></image>
+</view>
+
+<!-- TAB containe -->
+<view class='container-tab'>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeTab == index ? 'weui-bar__item_on' : 'weui-bar__item_off'}}" bindtap="bindTabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <!-- Tab 1 : 课程信息 -->
+      <view class="weui-tab__content" hidden="{{activeTab != 0}}">
+        <view class="weui-form-preview">
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">套餐</view>
+              <view class="weui-form-preview__value">{{listData.package.name}}</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">截止时间</view>
+              <view class="weui-form-preview__value"> {{listData.package.endDate}}</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">价格</view>
+              <view class="weui-form-preview__value mp-color-red">¥ {{listData.package.price}}</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">奇币减免</view>
+              <view class="weui-form-preview__value" bindtap='bindInfoDeduction'>
+                <text>{{listData.package.deduction}}币</text>
+                <i class="icon ion-md-help-circle icon-tips"></i>
+              </view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label">赠送奇币</view>
+              <view class="weui-form-preview__value" bindtap='bindInfoGive'>
+                <text>{{listData.package.give}}币</text>
+                <i class="icon ion-md-help-circle icon-tips"></i>
+              </view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <view class="weui-form-preview__label"></view>
+              <view class="weui-form-preview__value mp-color-orange">{{listData.package.people}}人已学</view>
+            </view>
+          </view>
+          <view class="weui-form-preview__bd">
+            <view class="weui-form-preview__item">
+              <block wx:if="{{listData.package.payed}}">
+                <button class="weui-btn" type="default" disabled>已购买</button>
+              </block>
+              <block wx:else>
+                <button class="weui-btn" type="primary" bindtap='bindBuy'>立即购买</button>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 包含课程  -->
+      <view class="weui-tab__content" hidden="{{activeTab != 1}}">
+        <view class="list-container">
+          <view class="weui-cells weui-cells_after-title list-content">
+            <block wx:for="{{listData.course}}" wx:for-item="itemCourse" wx:key="keyCourse" wx:for-index="indexCourse">
+              <view class="weui-cell">
+                <view class="weui-cell__bd">
+                  <i class="layui-icon layui-icon-circle mp-color-green"></i> {{itemCourse.name}}</view>
+              </view>
+            </block>
+            <view class="border-t"></view>
+          </view>
+        </view>
+      </view>
+      <!-- 课程简介 -->
+      <view class="weui-tab__content" hidden="{{activeTab != 2}}">
+        <view class='intro-content'>
+          <text decode="true" space="true">{{listData.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

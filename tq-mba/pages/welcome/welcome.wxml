@@ -1,0 +1,15 @@
+<!-- LOGO  -->
+<view class="logo">
+  <image src='{{logo}}' class='img-logo'></image>
+</view>
+<view class="title"> {{title}} </view>
+
+<!-- 倒计时秒数-->
+<text class="jump">{{jumpSecond}}</text>
+
+<!-- 公司版权信息  -->
+<view class="copyrights">
+  <view>{{copyright}} </view>
+  <view>{{company}}</view>
+  <view>{{site}}</view>
+</view>

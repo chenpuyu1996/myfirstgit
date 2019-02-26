@@ -1,0 +1,52 @@
+.download-progress-area {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column; /* 垂直方向 */
+  box-sizing: border-box;
+  align-items: center; /* 水平居中 */
+  justify-content: center; /* 垂直居中对齐 */
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.download-progress-content {
+  font-size: 36rpx;
+  color: #fff;
+  background-color: #ffb800;
+  width: 360rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs-img-poster {
+  margin-right: 20rpx;
+  vertical-align: middle;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.docs-label-red-dot {
+  position: absolute;
+  top: 30rpx;
+  left: 96rpx;
+  padding: 8rpx;
+}
+
+.docs-info-area {
+  margin-top: 24rpx;
+  margin-right: 10rpx;
+  color: #BBB;
+  font-size: 24rpx;
+}
+
+.weui-cell__bd {
+  font-size: 30rpx;
+  color: #111;
+}
