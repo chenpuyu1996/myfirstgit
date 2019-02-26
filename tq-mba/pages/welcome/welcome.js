@@ -40,7 +40,7 @@ Page({
     var entrance = wx.getLaunchOptionsSync()
     console.log(entrance)
     //判断本地缓存是否存在entrance
-    if (entrance.query.projectId) {
+    if (entrance.query.majorId) {
       //获取到的entrance不为空则更新缓存
       wx.setStorageSync('entrance', entrance)
     }

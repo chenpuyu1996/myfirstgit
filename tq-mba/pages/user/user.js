@@ -196,6 +196,7 @@ Page({
         uname: _this.data.uname,
         upass: _this.data.upass,
         code: _this.data.code,
+        majorId: app.globalData.projectId,
       },
       success: function(res) {
         console.log(res.data)
